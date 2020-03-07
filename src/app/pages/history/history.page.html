@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Bookings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card *ngFor="let item of (historyBookings | async)">
+      <ion-row>
+        <ion-col text-center size="4">
+            <img [src]="item.logo_url" *ngIf="item.logo_url != 'N/A'">
+        </ion-col>
+        <ion-col size="8">
+          <ion-label>
+            <h2>{{ item.salon_name }}</h2>
+            <h4>{{ item.salon_address }}</h4>
+            
+          </ion-label>
+          <ion-row>
+            <ion-col>
+              <ion-label>
+                <h4>{{ item.history_date }}</h4>
+              </ion-label>
+            </ion-col>
+            <ion-col (click)="openRatingPage(item.salon_name,item.salon_id,item.booking_id)">
+              <ion-label style="color:#F15D2C" *ngIf="item.review">
+                <h4>Rate Salon</h4>
+              </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+</ion-content>

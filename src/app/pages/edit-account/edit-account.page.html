@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{modalTitle}}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+          <form #form="ngForm" (ngSubmit)="editAccount(form)" method="post">
+            <ion-item>
+              <ion-label position="floating">Username</ion-label>
+              <ion-input ngModel type="text" value="{{ modalUsername }}" name="username"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input ngModel type="email" value="{{ modalEmail }}" name="email"></ion-input>
+            </ion-item>
+          
+            <ion-item>
+              <ion-label position="floating">Phone</ion-label>
+              <ion-input ngModel type="text" value="{{ modalPhone }}" name="phone"></ion-input>
+            </ion-item>
+            <ion-button type="submit" expand="block" color="primary">Update</ion-button>
+          </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nearby Salons</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+	<ion-list>
+	  <ion-item button *ngFor="let item of (results | async)" [routerLink]="['/', 'salons',item.salon_id ]" >
+		<ion-row>
+			<ion-col class="ion-text-center" size="4">
+				<img [src]="item.logo_url" *ngIf="item.logo_url != 'N/A'">
+			</ion-col>
+			<ion-col size="8">
+				<ion-label>
+					<h2>{{ item.name }}</h2>
+					<h4>{{ item.address }}</h4>
+				</ion-label>
+				<ion-row>
+					<ion-col>
+						<ion-label>
+							<h4><ion-icon medium [style.color]="'#F15D2C'" slot="start" name="star"></ion-icon>{{ item.average_rating }}</h4>
+							<h4><ion-icon medium [style.color]="'#F15D2C'" slot="start" name="call"></ion-icon>{{ item.phone }}</h4>
+						</ion-label>
+					</ion-col>
+					<ion-col>
+						<ion-label style="color:#F15D2C">
+							<h4><ion-icon medium [style.color]="'#F15D2C'" slot="start" name="pin"></ion-icon>{{ item.distance }}</h4>
+						</ion-label>
+					</ion-col>
+				</ion-row>
+			</ion-col>
+		</ion-row>
+	  </ion-item>
+	
+	</ion-list>
+</ion-content>

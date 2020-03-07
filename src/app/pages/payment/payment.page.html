@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Payment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Pay with a Credit Card</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list lines="none">
+        <form id="nonce-form" novalidate action="{{ paymentUrl }}" method="post">
+          <ion-item>
+            <ion-label>Card Number:</ion-label>
+          </ion-item>
+          <ion-item>
+            <!-- <ion-label>Card Number:</ion-label> -->
+            <ion-input id="sq-card-number" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>CVV:</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-input id="sq-cvv" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Expiration Date</ion-label>
+          </ion-item>
+          <ion-item>
+            <!-- <ion-label position="floating">Expiration Date</ion-label> -->
+            <ion-input id="sq-expiration-date" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Postal Code</ion-label>
+          </ion-item>
+          <ion-item>
+            <!-- <ion-label position="floating">Postal Code</ion-label> -->
+            <ion-input id="sq-postal-code" type="text"></ion-input>
+          </ion-item>
+          
+          <ion-button id="sq-creditcard" class="btn-main button-credit-card" (click)="this.requestCardNonce($event)">Pay
+            with card</ion-button>
+            
+            <ion-input type="hidden" id="sq-id" name="sq-id"></ion-input>
+            <ion-input type="hidden" id="card-nonce" name="nonce"></ion-input>
+            
+          </form>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+    
+    
+  </ion-content>
+  

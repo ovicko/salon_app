@@ -1,0 +1,23 @@
+export interface Booking {
+    booking_id:number;
+    salon_id:number;
+    customer_id:number;
+    total:number;
+    status:number;
+    appointment_date:string;
+    date_added:string;
+    firstname:string;
+    lastname:string;
+    email:string;
+    phone:string;
+    payment_method:string;
+    payment_reference:string;
+    currecy_code:string;
+    logo_url:string;
+    salon_name:string;
+    salon_address:string;
+    latitude:string;
+    longitude:string;
+    history_date:string;
+    review:boolean;
+}

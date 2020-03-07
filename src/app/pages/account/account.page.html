@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Account Details</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>
+        <h3>{{user ? user.name : 'username'}}</h3>
+        <p>{{user ? user.phone : 'phone number'}}</p>
+        <p>{{user ? user.email : 'email'}}</p>
+        <ion-button (click)="openEditAccountModal()">
+          <ion-icon slot="start" name="create"></ion-icon>
+          <ion-label>Edit Account</ion-label>
+        </ion-button>
+      </ion-label>
+      </ion-card-content>
+    </ion-card>
+    <ion-list class="has-header">
+      <ion-item button  [routerLink]="['/', 'account',changePasswordLink ]">
+        <ion-label class="ion-text-wrap">Change Password</ion-label>
+      </ion-item>
+      
+      <ion-item button  [routerLink]="['/', 'account',termsOfServiceLink ]">
+        <ion-label class="ion-text-wrap">Terms of Service</ion-label>
+      </ion-item>
+      
+      
+      <ion-item button  [routerLink]="['/', 'account',privacyPolicyLink ]">
+        <ion-label class="ion-text-wrap">Privacy Policy</ion-label>
+      </ion-item>
+      
+      <ion-item button  [routerLink]="['/', 'account',websiteLink ]">
+        <ion-label class="ion-text-wrap">Website</ion-label>
+      </ion-item>
+      
+      <ion-item button  [routerLink]="['/', 'account',helpPageLink ]">
+        <ion-label class="ion-text-wrap">Help</ion-label>
+      </ion-item>
+      
+      <ion-item button>
+        <ion-label class="ion-text-wrap" (click)="logout()">Logout</ion-label>
+      </ion-item>
+      
+    </ion-list>
+  </ion-content>
+  
