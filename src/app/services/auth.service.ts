@@ -20,7 +20,6 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private storage: NativeStorage,
-    private authService: AuthService,
     private env: EnvService
   ) {}
 
