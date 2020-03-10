@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { SalonDetailsPageRoutingModule } from './salon-details-routing.module';
 
 import { SalonDetailsPage } from './salon-details.page';
-import { StarRatingModule } from "ionic4-star-rating";
+import { StarRatingModule } from "ionic5-star-rating";
 
 @NgModule({
   imports: [

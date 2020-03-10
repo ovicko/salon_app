@@ -14,7 +14,7 @@
     <ion-row>
       <ion-col class="ion-text-center">
         <form #form="ngForm" (ngSubmit)="submitSalonReview(form)" method="post">
-          <ionic4-star-rating #rating 
+          <ionic5-star-rating #rating 
           activeIcon="ios-star" 
           defaultIcon="ios-star-outline" 
           activeColor="#F89621"
@@ -22,7 +22,7 @@
           fontSize = "32px"
           (ratingChanged)="logRatingChange($event)"
           defaultColor="#F15D2C" readonly="false">
-          </ionic4-star-rating>
+          </ionic5-star-rating>
           <ion-item>
             <ion-label position="floating">Comment</ion-label>
             <ion-input ngModel type="text" name="comment"></ion-input>
