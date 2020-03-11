@@ -58,7 +58,7 @@ export class SalonService {
       .pipe(map(results => results));
   }
 
-  rateSalon(ratingData: SalonRating) {
+  rateSalon(ratingData: SalonRating):any {
     console.log("Starting rating request");
     console.log(ratingData);
     this.http.post(this.env.API_URL + "salon/review", ratingData).subscribe(

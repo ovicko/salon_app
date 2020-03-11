@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [scrollEvents]="true">
         <div *ngFor="let item of (homePageSalons | async)">
           <ion-list-header class="ion-text-center">{{ item.name }}</ion-list-header>
           <ion-slides [options]="slideOptions">

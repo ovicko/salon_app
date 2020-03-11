@@ -53,6 +53,11 @@ export class SalonRatingPage implements OnInit {
     this.salonRatingModel.salonId = this.salonId;
     this.salonRatingModel.rating = this.customerRating;
 
-    this.salonService.rateSalon(this.salonRatingModel);
+    let response = this.salonService.rateSalon(this.salonRatingModel);
+
+    if (response) {
+      console.log(response)
+      this.closeModal();
+    }
   }
 }

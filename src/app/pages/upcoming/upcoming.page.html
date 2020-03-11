@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [scrollEvents]="true">
   
   <ion-card *ngFor="let item of (upcomingBookings | async)">
     <ion-row>

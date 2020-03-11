@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content [scrollEvents]="true" class="ion-padding">
 	<ion-list>
 	  <ion-item button *ngFor="let item of (results | async)" [routerLink]="['/', 'salons',item.salon_id ]" >
 		<ion-row>
