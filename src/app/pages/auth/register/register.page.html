@@ -13,27 +13,27 @@
   <form #form="ngForm" (ngSubmit)="register(form)" method="post">
     <ion-item>
       <ion-label position="floating">Username</ion-label>
-      <ion-input ngModel name="username"></ion-input>
+      <ion-input ngModel required minlength ="5" name="username"></ion-input>
     </ion-item>
     
     <ion-item>
       <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" ngModel name="email"></ion-input>
+      <ion-input type="email" required ngModel name="email"></ion-input>
     </ion-item>
     
     <ion-item>
       <ion-label position="floating">Phone</ion-label>
-      <ion-input ngModel name="phone"></ion-input>
+      <ion-input ngModel required name="phone"></ion-input>
     </ion-item>
     
     <ion-item>
       <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" ngModel name="password"></ion-input>
+      <ion-input type="password" required ngModel name="password"></ion-input>
     </ion-item>
     
     <ion-item>
       <ion-label position="floating">Confirm Password</ion-label>
-      <ion-input type="password" ngModel name="cpassword"></ion-input>
+      <ion-input type="password" required ngModel name="cpassword"></ion-input>
     </ion-item>
     
     <ion-button size="medium" type="submit" expand="block" color="danger">Register</ion-button>

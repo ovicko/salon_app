@@ -37,30 +37,47 @@ export class RegisterPage implements OnInit {
   }
 
   register(form: NgForm) {
+    var validForm:boolean = true;
     this.registerModel = new RegisterForm();
     this.registerModel.password = form.value.password;
     this.registerModel.username = form.value.username;
     this.registerModel.phone = form.value.phone;
     this.registerModel.email = form.value.email;
+    let cofirmPassword = form.value.cpassword;
 
-    this.authService.register(this.registerModel).subscribe(
-      data => {
-        this.authService.login(form.value.email, form.value.password).subscribe(
-          data => {},
-          error => {
-            this.alertService.presentToast(error);
-          },
-          () => {
-            this.dismissRegister();
-            this.navCtrl.navigateRoot("/home");
-          }
-        );
-        this.alertService.presentToast(data["message"]);
-      },
-      error => {
-        this.alertService.presentToast(error);
-      },
-      () => {}
-    );
+    if (this.registerModel.username.length < 5 || this.registerModel.phone.length < 8 ||
+       (cofirmPassword != this.registerModel.password) ) {
+      validForm = false;
+    }
+
+    if (this.registerModel.email.length < 5) {
+      validForm = false;
+    }
+
+
+    if (validForm) {
+      this.authService.register(this.registerModel).subscribe(
+        data => {
+          this.authService.login(form.value.email, form.value.password).subscribe(
+            data => { },
+            error => {
+              this.alertService.presentToast(error);
+            },
+            () => {
+              this.dismissRegister();
+              this.navCtrl.navigateRoot("/home");
+            }
+          );
+          this.alertService.presentToast(data["message"]);
+        },
+        error => {
+          this.alertService.presentToast(error);
+        },
+        () => { }
+      );
+    } else {
+      this.alertService.presentToast("The information entered is not valid!");
+    }
+
   }
 }
