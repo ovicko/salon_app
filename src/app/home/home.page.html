@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -9,34 +9,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [scrollEvents]="true">
-        <div *ngFor="let item of (homePageSalons | async)">
+<ion-content [scrollEvents]="true" overflow-scroll="false">
+        <div class="ion-padding" *ngFor="let item of (homePageSalons | async)">
           <ion-list-header class="ion-text-center">{{ item.name }}</ion-list-header>
           <ion-slides [options]="slideOptions">
             <ion-slide *ngFor="let salonItem of item.salons">
               <ion-card>
                 <ion-card-content>
-                  <ion-img [src]="salonItem.logo_url" *ngIf="salonItem.logo_url != 'N/A'" class="displayed"></ion-img>
+                  <ion-img [src]="salonItem.logo_url" *ngIf="salonItem.logo_url != 'N/A'" ></ion-img>
                   <p class="ion-text-center">{{salonItem.name}}</p>
                   <p class="ion-text-center">{{salonItem.address}}</p>
                   <ion-button (click)="navigateToDetailsPage(salonItem.salon_id)" class="ion-text-center" expand="block" shape="round"
-                    size="medium">Book</ion-button>
+                    size="medium">Book Now</ion-button>
                 </ion-card-content>
               </ion-card>
         
             </ion-slide>
           </ion-slides>
-        
-          <!-- <div class="scrolling-wrapper scroll" scrollX="true">
-                    <ion-card class="card" *ngFor="let salonItem of item.salons">
-                      <ion-card-content>
-                        <ion-img [src]="salonItem.logo_url" *ngIf="salonItem.logo_url != 'N/A'" class="displayed"></ion-img>
-                        <p class="ion-text-center">{{salonItem.name}}</p>
-                        <p class="ion-text-center">{{salonItem.address}}</p>
-                        <ion-button (click)="navigateToDetailsPage(salonItem.salon_id)" class="ion-text-center" expand="block"
-                        shape="round" size="medium">Book</ion-button>
-                      </ion-card-content>
-                    </ion-card>
-                  </div> -->
         </div>
 </ion-content>

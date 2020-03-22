@@ -16,13 +16,14 @@
 					<div class="salonOverlay">
 						<p>{{ information.name }}</p>
 						<p>{{ information.long_address }}</p>
-						<ionic4-star-rating 
-						#rating activeIcon="ios-star"
-						defaultIcon="ios-star-outline" 
+						<ionic5-star-rating 
+						#rating 
+						activeIcon="star" 
+          				defaultIcon="star-outline" 
 						activeColor="#F89621"
 						defaultColor="#f4f4f4" readonly="true" 
 						rating="{{ information.average_rating}}" fontSize="25px">
-					</ionic4-star-rating>
+					</ionic5-star-rating>
 				</div>
 			</ion-card>
 			

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, MenuController, NavController } from '@ionic/angular';
-import { RegisterPage } from '../pages/auth/register/register.page';
-import { LoginPage } from '../pages/auth/login/login.page';
 import { AuthService } from 'src/app/services/auth.service';
 import { Customer } from 'src/app/models/customer';
 import { SalonService } from '../services/salon.service';
@@ -40,11 +38,10 @@ export class HomePage {
 
 	  ngOnInit() {
 
-		this.homePageSalons = this.salonService.getHomePageSalons()
-
 	  }
 
 	  ionViewWillEnter() {
+		  this.homePageSalons = this.salonService.getHomePageSalons()
 		  this.authService.customerDetails().subscribe ( user =>{
 			  this.user = user;
 		  })

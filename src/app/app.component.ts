@@ -53,7 +53,7 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleBlackTranslucent();
-      //this.splashScreen.hide();
+      this.splashScreen.hide();
       this.authService.getToken();
       // this.authService.getUserId();
     });
