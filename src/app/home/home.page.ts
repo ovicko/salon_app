@@ -17,8 +17,9 @@ export class HomePage {
 	user: Customer;
 
 	slideOptions = {
-		spaceBetween: 2,
 		centeredSlides: false,
+		spaceBetween: 2,
+		slideShadows: true,
 		slidesPerView: 1.6
 	}
 
