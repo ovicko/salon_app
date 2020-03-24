@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 
-import { Platform,NavController  } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { Platform, NavController } from '@ionic/angular';
+//import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthService } from './services/auth.service';
 import { AlertService } from './services/alert.service';
+import { Plugins } from '@capacitor/core';
+const { SplashScreen } = Plugins;
 
 @Component({
   selector: 'app-root',
@@ -17,19 +19,19 @@ export class AppComponent {
       title: 'Home',
       url: 'home',
       icon: 'home'
-    },   
+    },
 
     {
       title: 'Nearby Salons',
       url: '/salons',
       icon: 'pin'
-    },       
+    },
 
     {
       title: 'Bookings',
       url: '/booking',
       icon: 'calendar'
-    },    
+    },
 
     {
       title: 'Account',
@@ -40,7 +42,7 @@ export class AppComponent {
 
   constructor(
     private platform: Platform,
-    private splashScreen: SplashScreen,
+    //private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private authService: AuthService,
     private navCtrl: NavController,
@@ -52,8 +54,8 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
+      SplashScreen.hide();
       this.statusBar.styleBlackTranslucent();
-      this.splashScreen.hide();
       this.authService.getToken();
       // this.authService.getUserId();
     });
