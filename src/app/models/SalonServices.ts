@@ -4,4 +4,6 @@ export interface SalonServices {
   quantity: number;
   price: number;
   isChecked: false;
+  name:string;
+  formated_price:string;
 }

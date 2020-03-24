@@ -17,7 +17,7 @@ import { RegisterPage } from '../../auth/register/register.page';
     IonicModule,
     LoginPageRoutingModule
   ],
-  declarations: [LoginPage],
-  entryComponents: [LoginPage]
+ //declarations: [LoginPage],
+ entryComponents: [LoginPage]
 })
 export class LoginPageModule {}
