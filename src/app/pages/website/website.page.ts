@@ -19,10 +19,7 @@ export class WebsitePage implements OnInit {
     shouldPauseOnSuspend: 'no', //Android only 
     closebuttoncaption: 'Close', //iOS only
     disallowoverscroll: 'no', //iOS only 
-    toolbar: 'yes', //iOS only 
     enableViewportScale: 'no', //iOS only 
-    allowInlineMediaPlayback: 'no',//iOS only 
-    presentationstyle: 'pagesheet',//iOS only 
     fullscreen: 'yes',//Windows only    
   };
 
@@ -34,7 +31,7 @@ export class WebsitePage implements OnInit {
   	// Get the ID that was passed with the URL
         let link = this.activatedRoute.snapshot.paramMap.get('link');
         console.log(link)
-        let target = "_blank";
+        let target = "_self";
     const browser = this.iab.create(link, target, this.browserOptions);
         browser.on('loadstop').subscribe(event => {
           browser.insertCSS({ code: "body{color: red;" });
