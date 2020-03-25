@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,6 +9,23 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class WebsitePage implements OnInit {
 
+  browserOptions: InAppBrowserOptions = {
+    hidden: 'no', //Or  'yes'
+    clearcache: 'yes',
+    clearsessioncache: 'yes',
+    zoom: 'yes',//Android only ,shows browser zoom controls 
+    hardwareback: 'yes',
+    mediaPlaybackRequiresUserAction: 'no',
+    shouldPauseOnSuspend: 'no', //Android only 
+    closebuttoncaption: 'Close', //iOS only
+    disallowoverscroll: 'no', //iOS only 
+    toolbar: 'yes', //iOS only 
+    enableViewportScale: 'no', //iOS only 
+    allowInlineMediaPlayback: 'no',//iOS only 
+    presentationstyle: 'pagesheet',//iOS only 
+    fullscreen: 'yes',//Windows only    
+  };
+
   	/**
 	 * Constructor of our details page
 	 * @param activatedRoute Information about the route we are on
@@ -17,7 +34,8 @@ export class WebsitePage implements OnInit {
   	// Get the ID that was passed with the URL
         let link = this.activatedRoute.snapshot.paramMap.get('link');
         console.log(link)
-        const browser = this.iab.create(link);
+        let target = "_blank";
+    const browser = this.iab.create(link, target, this.browserOptions);
         browser.on('loadstop').subscribe(event => {
           browser.insertCSS({ code: "body{color: red;" });
         });
